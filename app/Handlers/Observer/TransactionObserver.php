@@ -91,5 +91,9 @@ class TransactionObserver
             }
         }
         $this->updatePrimaryCurrencyAmount($transaction);
+        foreach ($transaction->transactionJournal->piggyBankEvents as $piggyEvent) {
+            $piggyEvent->date = $transaction->transactionJournal->date;
+            $piggyEvent->save();
+        }
     }
 }
