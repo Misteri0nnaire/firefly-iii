@@ -19,6 +19,15 @@
                 </template>
             </div>
         </div>
+        <div class="form-group mt-3">
+            <label for="piggy_bank_id">Piggy Bank</label>
+            <select x-model="entries[index].piggy_bank_id" id="piggy_bank_id" class="form-select">
+                <option value="">Aucun</option>
+                <template x-for="pb in piggyBanks">
+                    <option :value="pb.id" x-text="pb.name"></option>
+                </template>
+            </select>
+        </div>
     </div>
 
 @endsection
