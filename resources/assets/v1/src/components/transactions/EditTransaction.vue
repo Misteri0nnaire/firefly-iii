@@ -171,6 +171,12 @@
                                         :error="transaction.errors.category"
                                         :transactionType="transactionType"
                                     ></category>
+                                    <piggy-bank
+                                        v-model="transaction.piggy_bank"
+                                        :error="transaction.errors.piggy_bank"
+                                        :no_piggy_bank="$t('firefly.no_piggy_bank')"
+                                        :transactionType="transactionType"
+                                    ></piggy-bank>
                                     <tags
                                         v-model="transaction.tags"
                                         :error="transaction.errors.tags"
