@@ -112,10 +112,6 @@ let transactions = function () {
             }
         },
 
-        selectedPiggyBank(index) {
-            this.entries[index].piggy_bank_id = this.formData.piggyBanks[index]?.id ?? null;
-        },
-
         keyUpFromCategory(e) {
             if (e.key === 'Enter' && false === this.formBehaviour.categorySelectVisible) {
                 this.submitTransaction();
@@ -144,11 +140,6 @@ let transactions = function () {
 
             // parse transaction:
             let transactions = parseFromEntries(this.entries, this.originals, this.groupProperties.transactionType);
-            transactions = transactions.map((t, i) => ({
-                ...t,
-                piggy_bank_id: this.entries[i].piggy_bank_id ?? null
-            }));
-
             let submission = {
                 group_title: this.groupProperties.editTitle,
                 fire_webhooks: this.formStates.webhooksButton,
