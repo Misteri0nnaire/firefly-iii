@@ -82,7 +82,8 @@ trait ModifiesPiggyBanks
         $pivot->save();
 
         Log::debug('ChangedAmount: removeAmount [a]: Trigger change for negative amount.');
-        event(new ChangedAmount($piggyBank, bcmul($amount, '-1'), $journal, null));
+        // event(new ChangedAmount($piggyBank, bcmul($amount, '-1'), $journal, null));
+        event(new ChangedAmount($piggyBank, '-' . $amount, $journal, null));
 
         return true;
     }
